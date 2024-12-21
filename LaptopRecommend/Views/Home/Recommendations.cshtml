@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Recommendations WOW";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Рекомендовані ноутбуки</h1>
+</div>
+
+@model List<Laptop>
+    
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Бренд</th>
+                <th>Модель</th>
+                <th>Ціна</th>
+                <th>Бренд Процесора</th>
+                <th>Процесор</th>
+                <th>Кількість ядер</th>
+                <th>Кількість потоків</th>
+                <th>RAM</th>
+                <th>Тип памʼяті</th>
+                <th>Кількість памʼяті</th>
+                <th>Дисплей</th>
+                <th>Операційна система</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var laptop in Model)
+            {
+                <tr>
+                    <td>@laptop.Brand</td>
+                    <td>@laptop.Model</td>
+                    <td>@laptop.PriceUAH</td>
+                    <td>@laptop.ProcessorBrand</td>
+                    <td>@laptop.Processor</td>
+                    <td>@laptop.NumCores</td>
+                    <td>@laptop.NumThreads</td>
+                    <td>@laptop.RAM</td>
+                    <td>@laptop.StorageType</td>
+                    <td>@laptop.Storage</td>
+                    <td>@laptop.Screen</td>
+                    <td>@laptop.OS</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Немає відповідних ноутбуків.</p>
+}
+
+<div>
+    <button onclick="window.history.back()">Назад до форми</button>
+</div>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    button:hover {
+        background-color: #45a049;
+
+</style>
